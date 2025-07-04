@@ -22,6 +22,11 @@ def create_app(test_config = None):
             os.makedirs(app.instance_path)
         except OSError:
             pass
+    
+
+    @app.route("/")
+    def index():
+        return "<h1>Hello!</h1>"
 
     #a simple page that sys hello
     @app.route('/hello')
