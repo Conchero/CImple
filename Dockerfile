@@ -1,16 +1,8 @@
-# syntax=docker/dockerfile:1
-
-FROM python:latest
-
-WORKDIR /cimple-docker
-
-
-COPY requirements.txt requirements.txt
-
-RUN pip3 install -r requirements.txt
-
+FROM ubuntu:latest
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y python3.9 python3-pip
+#FROM python:3.9
+WORKDIR /hab
 COPY . .
-
-EXPOSE 8000
-
-CMD ["python3","-m","flask","run","--host=0.0.0.0"]
+RUN pip3 install -r requirements.txt
+CMD gunicorn --bind 0.0.0.0:8888 app:app  
