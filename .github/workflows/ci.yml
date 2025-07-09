@@ -35,7 +35,7 @@ jobs:
 
     - name: LS test
       run: |
-        ls instance
+        ls data
 
     - name: Deploy
       env:
