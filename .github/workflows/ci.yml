@@ -19,9 +19,9 @@ jobs:
         cache: 'pip' # caching pip dependencies
     - run: pip install -r requirements.txt
 
-    - name: Go To Venv
+    - name: Make Venv
       run: |
-        ls
+        python3 -m venv .venv
 
     - name: Make Test
       run: |
