@@ -6,6 +6,7 @@ def create_app(test_config = None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
     PROJECT_ROOT = os.path.dirname(os.path.realpath(__file__))
+    print(PROJECT_ROOT)
     app.instance_path = os.path.join(PROJECT_ROOT,"data")
     database_path = os.path.join(app.instance_path, 'flaskr.sqlite')
     app.config.from_mapping(
