@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# créer le dossier /data s’il n’existe pas
+# créer le dossier /instance s’il n’existe pas
 mkdir -p instance
 
 # initialiser la base si elle n’existe pas
