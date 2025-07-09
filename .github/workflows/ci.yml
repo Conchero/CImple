@@ -25,6 +25,7 @@ jobs:
 
     - name: Create Sqlite Database
       run: |
+        mkdir instance
         flask --app flaskr init-db
 
     - name: Make Test
