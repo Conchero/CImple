@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # créer le dossier /data s’il n’existe pas
-mkdir -p /instance
+mkdir -p instance
 
 # initialiser la base si elle n’existe pas
 if [ ! -f /instance/flaskr.sqlite ]; then
