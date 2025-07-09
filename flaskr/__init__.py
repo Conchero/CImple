@@ -5,11 +5,8 @@ def create_app(test_config = None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
     
-    if "DATABASE_PATH" in os.environ:
-        database_path = os.environ["DATABASE_PATH"]
-    else:
-        database_path = os.path.join(app.instance_path, 'flaskr.sqlite')
-        
+
+    database_path = os.path.join(app.instance_path, 'flaskr.sqlite')
     app.config.from_mapping(
         SECRET_KEY='dev',
         DATABASE= database_path,
