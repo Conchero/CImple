@@ -19,11 +19,9 @@ jobs:
         cache: 'pip' # caching pip dependencies
     - run: pip install -r requirements.txt
 
-    - name: copy file
-      uses: canastro/copy-file-action@master
-      with:
-        source: "CImple/Dockerfile"
-        target: "test-a.txt"
+    - name: Go To Venv
+      run: |
+        .venv\Scripts\Activate
 
     - name: Make Test
       run: |
