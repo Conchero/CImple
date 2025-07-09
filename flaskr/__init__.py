@@ -5,7 +5,8 @@ from flask import Flask
 def create_app(test_config = None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
-    app.instance_path = "./data"
+    PROJECT_ROOT = os.path.dirname(os.path.realpath(__file__))
+    app.instance_path = os.path.join(PROJECT_ROOT,"data")
     database_path = os.path.join(app.instance_path, 'flaskr.sqlite')
     app.config.from_mapping(
         SECRET_KEY='dev',
