@@ -21,7 +21,7 @@ jobs:
 
     - name: Go To Venv
       run: |
-        .venv/Scripts/Activate
+        ls
 
     - name: Make Test
       run: |
