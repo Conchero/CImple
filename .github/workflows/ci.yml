@@ -25,8 +25,12 @@ jobs:
 
     - name: Create Sqlite Database
       run: |
-        mkdir -p data
+        mkdir -p instance
         flask --app flaskr init-db
+
+    - name: Make boot sh executable
+      run: |
+        chmod +x boot.sh
 
     - name: Make Test
       run: |
