@@ -17,11 +17,19 @@ jobs:
       with:
         python-version: '3.13'
         cache: 'pip' # caching pip dependencies
-    - run: pip install -r requirements.txt
+    # - run: pip install -r requirements.txt
 
     - name: Make Venv
       run: |
         python3 -m venv .venv
+
+    - name: Go to Venv
+      run: |
+        . .venv/bin/activate
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
 
     - name: List
       run: |
