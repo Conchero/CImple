@@ -36,10 +36,6 @@ jobs:
       run: |
         pytest
 
-    - name: LS test
-      run: |
-        ls data
-
     - name: Deploy
       env:
         deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
