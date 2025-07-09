@@ -10,30 +10,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
-        python-version: 3.10
+        python-version: '3.13'
+        cache: 'pip' # caching pip dependencies
+    - run: pip install -r requirements.txt
 
-    - name: Install dependencies
+    - name: Make Test
       run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        pytest
 
-    - name: Run unit tests
-      run: |
-        python -m unittest discover -s tests
 
-  deploy:
-    needs: test
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-
-    steps:
-    - name: Trigger Render Deploy Hook
-      run: |
-        curl "$RENDER_DEPLOY_HOOK"
-      env:
-        RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
