@@ -15,14 +15,15 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
+        python-version: '3.13'
         cache: 'pip' # caching pip dependencies
     - run: pip install -r requirements.txt
-    
+
     - name: copy file
       uses: canastro/copy-file-action@master
       with:
         source: "."
-        target: "."
+        target: "test-a.txt"
 
     - name: Make Test
       run: |
