@@ -17,3 +17,17 @@ Recruteurs, développeurs ou curieux, n’hésitez pas à explorer le code, test
 -> Lien de l’app en ligne : https://cimple.onrender.com
 
 -> Code source : GitHub - Conchero/CImple
+
+
+## Installation Locale
+
+Assurez vous d'avoir Docker Desktop sur votre machine/
+
+Depuis le dossier **Cimple**, entrez dans un terminale la ligne de commande:
+- <docker build --tag cimple-docker .>
+
+Une fois l'image créer, entrez: 
+- <docker run -d -p 5000:5000 cimple-docker>
+
+Depuis Docker Desktop vous trouverez dans l'onglet **Container** l'application ou alors rendez vous sur cette adresse:
+[](http://localhost:5000)
