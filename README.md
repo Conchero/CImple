@@ -34,3 +34,6 @@ docker build -t cimple-docker .
 
 ### Lancer le conteneur
 docker run -d -p 5000:5000 cimple-docker
+
+Vous pouvez maintenant accéder à l’application à l’adresse suivante :
+http://localhost:5000
