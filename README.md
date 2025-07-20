@@ -16,6 +16,7 @@ Le code est accessible, maintenable et documenté. Recruteurs, formateurs ou cur
 
 -> Code source : GitHub - Conchero/CImple
 
+---
 
 ## Lancer en local avec Docker
 
@@ -24,12 +25,12 @@ Le code est accessible, maintenable et documenté. Recruteurs, formateurs ou cur
 
 ### Étapes
 
-# Cloner le dépôt
+### Cloner le dépôt
 git clone https://github.com/Conchero/CImple.git
 cd CImple
 
-# Construire l’image Docker
+### Construire l’image Docker
 docker build -t cimple-docker .
 
-# Lancer le conteneur
+### Lancer le conteneur
 docker run -d -p 5000:5000 cimple-docker
