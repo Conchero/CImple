@@ -1,34 +1,35 @@
-## Bienvenue sur mon projet de blog personnel !
+# CImple – Blog Flask CI/CD (Projet DevOps)
 
-Ce projet a été conçu dans le cadre de ma montée en compétences en DevOps, et a pour objectif de démontrer ma capacité à :
+**CImple** est une application web développée avec Flask dans le but de mettre en pratique mes compétences en **DevOps**, dans le cadre de ma reconversion vers ce domaine.
 
-* Développer une application web en Python (Flask)
+Le projet vise à démontrer ma capacité à :
 
-* Mettre en place une intégration continue (CI) avec GitHub Actions
+- Concevoir une architecture modulaire Python
+- Mettre en place une intégration continue (CI) via **GitHub Actions**
+- Déployer automatiquement l’application sur **Render** (CD)
+- Structurer le projet avec **tests unitaires** et configuration dynamique
+- Conteneuriser l’application (version Docker disponible)
 
-* Gérer une chaîne de déploiement automatisé (CD) vers Render
-
-* Structurer le code selon les bonnes pratiques (modularité, tests unitaires, configuration dynamique)
-
-Le tout est conteneurisé avec Docker (version précédente), et la version actuelle est déployée automatiquement à chaque push sur main.
-
-Recruteurs, développeurs ou curieux, n’hésitez pas à explorer le code, tester l’application, ou cloner le dépôt pour la faire tourner localement.
+Le code est accessible, maintenable et documenté. Recruteurs, formateurs ou curieux, n’hésitez pas à l’explorer, à tester l’application ou à cloner le dépôt.
 
 -> Lien de l’app en ligne : https://cimple.onrender.com
 
 -> Code source : GitHub - Conchero/CImple
 
 
-## Installation Locale
+## Lancer en local avec Docker
 
-Assurez vous d'avoir Docker Desktop sur votre machine/
+### Prérequis
+- Docker installé sur votre machine ([Docker Desktop](https://www.docker.com/products/docker-desktop))
 
-Depuis le dossier **Cimple**, entrez dans un terminale la ligne de commande:
-- <docker build --tag cimple-docker .>
+### Étapes
 
-Une fois l'image créer, entrez: 
-- <docker run -d -p 5000:5000 cimple-docker>
+# Cloner le dépôt
+git clone https://github.com/Conchero/CImple.git
+cd CImple
 
-Depuis Docker Desktop vous trouverez dans l'onglet **Container** l'application ou alors rendez vous sur cette adresse:
+# Construire l’image Docker
+docker build -t cimple-docker .
 
-http://localhost:5000
+# Lancer le conteneur
+docker run -d -p 5000:5000 cimple-docker
