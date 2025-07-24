@@ -14,8 +14,6 @@ Le code est accessible, maintenable et documenté. Recruteurs, formateurs ou cur
 
 -> Lien de l’app en ligne : https://cimple.onrender.com
 
--> Code source : GitHub - Conchero/CImple
-
 ---
 
 ## Lancer en local avec Docker
