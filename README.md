@@ -14,7 +14,7 @@ Le code est accessible, maintenable et documenté. Recruteurs, formateurs ou cur
 
 -> Lien de l’app en ligne : https://cimple.onrender.com
 
-##### ⚠️ **La base de donnée n'est pas persistante en version déployé, cela est dû à la version gratuite de l'hébergeur, une solution serait d'implémenter le fichier sql dans le build mais n'étant pas une pratique courante en production professionnelle j'ai préféré me concentrer sur d'autre projets**
+##### ⚠️ **La base de donnée n'est pas persistante en version déployé, cela est dû à la version gratuite de l'hébergeur, une solution serait d'implémenter le fichier sql dans le build mais n'étant pas une pratique courante en production professionnelle j'ai préféré me concentrer sur d'autre projets où je vais utiliser Docker Volumes afin de régler ce hic**
 ---
 
 ## Lancer en local avec Docker
