@@ -2,7 +2,7 @@ name: CI/CD Flask Render
 
 on:
   push:
-    branches: [ main ]
+    branches: [ release ]
   pull_request:
 
 jobs:
