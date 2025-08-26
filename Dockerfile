@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y python3.9 python3-pip
-#FROM python:3.9
+FROM python:3.9
 WORKDIR /hab
 COPY . .
 RUN pip3 install -r requirements.txt
