@@ -31,7 +31,7 @@ def index_filtered(id):
         ' ORDER BY created DESC',
         (id,)
     ).fetchall()
-    return render_template('blog/index.html', posts=posts,categories=categories)
+    return render_template('blog/index.html', posts=posts,categories=categories, page_id=id)
 
 @bp.route('/create', methods=('GET', 'POST'))
 @login_required
