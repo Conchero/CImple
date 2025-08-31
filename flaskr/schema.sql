@@ -14,12 +14,11 @@ CREATE TABLE post (
   created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   title TEXT NOT NULL,
   body TEXT NOT NULL,
-  FOREIGN KEY (author_id) REFERENCES user (id)
+  FOREIGN KEY (author_id) REFERENCES user (id),
   FOREIGN KEY (category_id) REFERENCES category (id)
 );
 
 CREATE TABLE category(
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  post_id INTEGER NOT NULL,
   title TEXT NOTNULL,
 );
