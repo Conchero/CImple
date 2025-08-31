@@ -11,7 +11,7 @@
     <label for="category__select">Category</label>
     <select name="category__select" id="category__select">
     {% for category in categories %}
-    <option value="{{ category['id'] }}">{{ category['title'] }}</option>
+    <option value="{{ category['id'] }}">{{ category['cat_name'] }}</option>
     {% endfor %}
     </select>
     <label for="body">Body</label>

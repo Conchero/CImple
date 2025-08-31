@@ -1,10 +1,40 @@
 {% extends 'base.html' %}
 
+
+
+
 {% block header %}
   <h1>{% block title %}Posts{% endblock %}</h1>
   {% if g.user %}
     <a class="action" href="{{ url_for('blog.create') }}">New</a>
   {% endif %}
+  
+
+  <label for="category__filter">Category</label>
+  <select name="category__filter" id="category__filter" >
+  <option value="-1">All</option>
+    {% for category in categories %}
+   <option value="{{ category['id'] }}">{{ category['cat_name'] }}</option>
+    {% endfor %}
+  </select>
+
+<script>
+  const categorySelector = document.getElementById("category__filter")
+  categorySelector.addEventListener("change", (e) => {
+    const newLocationID = categorySelector.value
+    if (newLocationID != undefined && newLocationID >= 0)
+    {
+      location.assign("{{url_for('blog.index_filtered',id=0 )}}".replace("0", newLocationID));
+    }
+    else
+    {
+       location.assign("{{ url_for('blog.index') }}")
+    }
+  })
+</script>
+
+
+
 {% endblock %}
 
 {% block content %}
@@ -13,6 +43,7 @@
       <header>
         <div>
           <h1>{{ post['title'] }}</h1>
+          <h3>{{ post['cat_name'] }}</h3>
           <div class="about">by {{ post['username'] }} on {{ post['created'].strftime('%Y-%m-%d') }}</div>
         </div>
         {% if g.user['id'] == post['author_id'] %}

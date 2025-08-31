@@ -11,12 +11,27 @@ bp = Blueprint('blog', __name__)
 @bp.route('/')
 def index():
     db = get_db()
+    categories = db.execute('SELECT * FROM category').fetchall()
     posts = db.execute(
-        'SELECT p.id, title, body, created, author_id, username'
-        ' FROM post p JOIN user u ON p.author_id = u.id'
+        'SELECT p.id, title, body, created, author_id, username, category_id, cat_name'
+        ' FROM post p JOIN user u ON p.author_id = u.id JOIN category c ON p.category_id = c.id'
         ' ORDER BY created DESC'
     ).fetchall()
-    return render_template('blog/index.html', posts=posts)
+    return render_template('blog/index.html', posts=posts,categories=categories)
+
+
+@bp.route('/<int:id>')
+def index_filtered(id):
+    print(id)
+    db = get_db()
+    categories = db.execute('SELECT * FROM category').fetchall()
+    posts = db.execute(
+        'SELECT p.id, title, body, created, author_id, username, category_id, cat_name'
+        ' FROM post p JOIN user u ON p.author_id = u.id JOIN category c ON p.category_id = c.id WHERE p.id = ?'
+        ' ORDER BY created DESC',
+        (id,)
+    ).fetchall()
+    return render_template('blog/index.html', posts=posts,categories=categories)
 
 @bp.route('/create', methods=('GET', 'POST'))
 @login_required
