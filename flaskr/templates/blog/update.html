@@ -9,6 +9,16 @@
     <label for="title">Title</label>
     <input name="title" id="title"
       value="{{ request.form['title'] or post['title'] }}" required>
+    <label for="category__select">Category</label>
+    <select name="category__select" id="category__select">
+    {% for category in categories %}
+    {% if post['category_id'] == category['id'] %}
+    <option value="{{ category['id'] }}" selected>{{ category['title'] }}</option>
+    {% else %}
+    <option value="{{ category['id'] }}">{{ category['title'] }}</option>
+    {% endif %}
+    {% endfor %}
+    </select>
     <label for="body">Body</label>
     <textarea name="body" id="body">{{ request.form['body'] or post['body'] }}</textarea>
     <input type="submit" value="Save">

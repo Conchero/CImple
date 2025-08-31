@@ -24,8 +24,10 @@ def create():
     
     db = get_db()
     categories = db.execute('SELECT * FROM category').fetchall()
+    
     if request.method == 'POST':
         title = request.form['title']
+        category = request.form['category__select']
         body = request.form['body']
         error = None
 
@@ -39,7 +41,7 @@ def create():
             db.execute(
                 'INSERT INTO post (title, body, author_id, category_id)'
                 ' VALUES (?, ?, ?, ?)',
-                (title, body, g.user['id'],1)
+                (title, body, g.user['id'],category)
             )
             db.commit()
             return redirect(url_for('blog.index'))
@@ -48,7 +50,7 @@ def create():
 
 def get_post(id, check_author=True):
     post = get_db().execute(
-        'SELECT p.id, title, body, created, author_id, username'
+        'SELECT p.id, title, body, created, author_id, category_id, username'
         ' FROM post p JOIN user u ON p.author_id = u.id'
         ' WHERE p.id = ?',
         (id,)
@@ -66,10 +68,12 @@ def get_post(id, check_author=True):
 @login_required
 def update(id):
     post = get_post(id)
+    categories = get_db().execute('SELECT * FROM category').fetchall()
 
     if request.method == 'POST':
         title = request.form['title']
         body = request.form['body']
+        category = request.form['category__select']
         error = None
 
         if not title:
@@ -80,14 +84,14 @@ def update(id):
         else:
             db = get_db()
             db.execute(
-                'UPDATE post SET title = ?, body = ?'
+                'UPDATE post SET title = ?, body = ?, category_id = ?'
                 ' WHERE id = ?',
-                (title, body, id)
+                (title, body, category, id)
             )
             db.commit()
             return redirect(url_for('blog.index'))
 
-    return render_template('blog/update.html', post=post)
+    return render_template('blog/update.html', post=post, categories=categories)
 
 
 @bp.route('/<int:id>/delete', methods=('POST',))
