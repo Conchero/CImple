@@ -9,8 +9,8 @@
     <label for="title">Title</label>
     <input name="title" id="title"
       value="{{ request.form['title'] or post['title'] }}" required>
-    <label for="category__select">Category</label>
-    <select name="category__select" id="category__select">
+    <label for="category_id">Category</label>
+    <select name="category_id" id="category_id">
     {% for category in categories %}
     {% if post['category_id'] == category['id'] %}
     <option value="{{ category['id'] }}" selected>{{ category['cat_name'] }}</option>

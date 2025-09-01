@@ -41,7 +41,7 @@ def create():
     
     if request.method == 'POST':
         title = request.form['title']
-        category = request.form['category__select']
+        category_id = request.form['category_id']
         body = request.form['body']
         error = None
 
@@ -55,7 +55,7 @@ def create():
             db.execute(
                 'INSERT INTO post (title, body, author_id, category_id)'
                 ' VALUES (?, ?, ?, ?)',
-                (title, body, g.user['id'],category)
+                (title, body, g.user['id'],category_id)
             )
             db.commit()
             return redirect(url_for('blog.index'))
@@ -87,7 +87,7 @@ def update(id):
     if request.method == 'POST':
         title = request.form['title']
         body = request.form['body']
-        category = request.form['category__select']
+        category_id = request.form['category_id']
         error = None
 
         if not title:
@@ -100,7 +100,7 @@ def update(id):
             db.execute(
                 'UPDATE post SET title = ?, body = ?, category_id = ?'
                 ' WHERE id = ?',
-                (title, body, category, id)
+                (title, body, category_id, id)
             )
             db.commit()
             return redirect(url_for('blog.index'))

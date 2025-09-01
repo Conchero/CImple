@@ -56,7 +56,7 @@ def test_create(client, auth, app):
 def test_update(client, auth, app):
     auth.login()
     assert client.get('/1/update').status_code == 200
-    client.post('/1/update', data={'title': 'updated', 'body' : '', 'category': ''})
+    client.post('/1/update', data={'title': 'updated', 'body' : '', 'category_id': '1'})
     
     with app.app_context():
         db = get_db()
@@ -70,7 +70,7 @@ def test_update(client, auth, app):
 ))
 def test_create_update_validate(client, auth, path):
     auth.login()
-    response = client.post(path, data={'title' : '', 'body' : '', 'category': ''})
+    response = client.post(path, data={'title' : '', 'body' : '', 'category_id': '1'})
     assert b'Title is required.' in response.data
 
 def test_delete(client, auth, app):
