@@ -29,10 +29,13 @@ git clone https://github.com/Conchero/CImple.git
 cd CImple
 
 ### Construire l’image Docker
-docker build -t cimple-docker .
+docker build -t cimple:latest .
+
+### Construire le volume Docker pour la persistance de la data
+docker volume create cimple-volume
 
 ### Lancer le conteneur
-docker run -d -p 5000:5000 cimple-docker
+docker run --name cimple_test -dp 7000:7000 --mount type=volume,src=cimple-volume,target=/app/instance cimple:latest
 
 Vous pouvez maintenant accéder à l’application à l’adresse suivante :
-http://localhost:5000
+http://localhost:7000
