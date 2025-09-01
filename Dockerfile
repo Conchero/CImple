@@ -1,5 +1,7 @@
 FROM python:slim
 
+WORKDIR /app
+
 COPY requirements.txt requirements.txt
 RUN python -m venv .venv
 RUN . .venv/bin/activate
@@ -10,9 +12,11 @@ COPY app.py boot.sh ./
 RUN chmod a+x boot.sh
 
 
-ENV FLASK_APP app.py
+ENV FLASK_APP=app.py
 
 
 EXPOSE 7000
+
+RUN ls
 
 ENTRYPOINT [ "./boot.sh" ]
