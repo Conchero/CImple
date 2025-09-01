@@ -1,8 +1,18 @@
-FROM ubuntu:latest
-ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt-get install -y python3.9 python3-pip
-FROM python:3.9
-WORKDIR /hab
-COPY . .
-RUN pip3 install -r requirements.txt
-CMD gunicorn --bind 0.0.0.0:8888 app:app  
+FROM python:slim
+
+COPY requirements.txt requirements.txt
+RUN python -m venv .venv
+RUN . .venv/bin/activate
+RUN pip install -r requirements.txt
+
+COPY flaskr flaskr
+COPY app.py boot.sh ./
+RUN chmod a+x boot.sh
+
+
+ENV FLASK_APP app.py
+
+
+EXPOSE 7000
+
+ENTRYPOINT [ "./boot.sh" ]

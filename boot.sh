@@ -8,5 +8,6 @@ if [ ! -f /instance/flaskr.sqlite ]; then
   flask --app flaskr init-db
 fi
 
+
 # lancer gunicorn
-exec gunicorn app:app
+exec gunicorn -b 0.0.0.0:7000 app:app
