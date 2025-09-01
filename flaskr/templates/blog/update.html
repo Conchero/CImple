@@ -13,9 +13,9 @@
     <select name="category__select" id="category__select">
     {% for category in categories %}
     {% if post['category_id'] == category['id'] %}
-    <option value="{{ category['id'] }}" selected>{{ category['title'] }}</option>
+    <option value="{{ category['id'] }}" selected>{{ category['cat_name'] }}</option>
     {% else %}
-    <option value="{{ category['id'] }}">{{ category['title'] }}</option>
+    <option value="{{ category['id'] }}">{{ category['cat_name'] }}</option>
     {% endif %}
     {% endfor %}
     </select>

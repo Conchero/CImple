@@ -36,7 +36,6 @@ def index_filtered(id):
 @bp.route('/create', methods=('GET', 'POST'))
 @login_required
 def create():
-    
     db = get_db()
     categories = db.execute('SELECT * FROM category').fetchall()
     

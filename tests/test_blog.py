@@ -46,7 +46,7 @@ def test_exist_required(client, auth, path):
 def test_create(client, auth, app):
     auth.login()
     assert client.get('/create').status_code == 200
-    client.post('/create', data={'title': 'created', 'body': '', 'category': ''})
+    client.post('/create', data={'title': 'created', 'body': '', 'category_id': '1'})
     
     with app.app_context():
         db = get_db()
