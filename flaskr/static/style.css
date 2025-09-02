@@ -16,6 +16,12 @@ body {
   background: white;
 }
 
+header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 h1{
   font-weight: bolder;
 }
@@ -105,8 +111,15 @@ nav ul li a, nav ul li span, header .action {
   font-style: italic;
 }
 
+
+.category_div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .post .body {
-  white-space: pre-line;
+overflow-wrap: break-word;
 }
 
 .content:last-child {
