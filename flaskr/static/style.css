@@ -1,3 +1,5 @@
+@import url(./var.css);
+
 @font-face {
   font-family: "Josefin Sans";
   src: "../assets/fonts/Josefin_Sans/JosefinSans-VariableFont_wght.ttf";
@@ -27,7 +29,7 @@ h1{
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #377ba8;
+  color: black;
   margin: 1rem 0;
 }
 
@@ -53,7 +55,7 @@ nav h1 {
 }
 
 nav h1 a {
-  text-decoration: none;
+  /* text-decoration: none; */
   padding: 0.25rem 0.5rem;
 }
 
@@ -91,15 +93,46 @@ nav ul li a, nav ul li span, header .action {
   border: 1px solid #377ba8;
 }
 
-.post > header {
-  display: flex;
-  align-items: flex-end;
-  font-size: 0.85em;
+
+.post.category-1{
+  background-color: var(--music-post-color);
+}
+.post.category-2{
+  background-color: var(--food-post-color);
+}
+.post.category-3{
+  background-color: var(--DIY-post-color);
+}
+.post.category-4{
+  background-color: var(--misc-post-color);
 }
 
-.post > header > div:first-of-type {
-  flex: auto;
+.post > header {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85em;
+  border-bottom: 1px solid black;
 }
+
+.post > header > .post_info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 3%;
+
+
+}
+
+.post > header > .post_info >.post_info-category{
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding: 1%;
+}
+
+/* .post > header > div:first-of-type {
+  flex: auto;
+} */
 
 .post > header h1 {
   font-size: 1.5em;
@@ -111,6 +144,9 @@ nav ul li a, nav ul li span, header .action {
   font-style: italic;
 }
 
+.post > footer{
+  text-align: right;
+}
 
 .category_div{
   display: flex;
