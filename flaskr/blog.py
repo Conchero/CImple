@@ -27,7 +27,7 @@ def index_filtered(id):
     categories = db.execute('SELECT * FROM category').fetchall()
     posts = db.execute(
         'SELECT p.id, title, body, created, author_id, username, category_id, cat_name'
-        ' FROM post p JOIN user u ON p.author_id = u.id JOIN category c ON p.category_id = c.id WHERE p.id = ?'
+        ' FROM post p JOIN user u ON p.author_id = u.id JOIN category c ON p.category_id = c.id WHERE c.id = ?'
         ' ORDER BY created DESC',
         (id,)
     ).fetchall()
