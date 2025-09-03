@@ -2,21 +2,28 @@
 
 {% block header %}
 <a href="{{url_for('blog.index')}}">Go Back to main page</a>
-<h1>{% block title %}New Post{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
-  <form method="post">
-    <label for="title">Title</label>
-    <input name="title" id="title" value="{{ request.form['title'] }}" required>
+<form class="auth__form" method="post">
+
+  <h1>{% block title %}New Post{% endblock %}</h1>
+
+  <label for="title">Title</label>
+  <input name="title" id="title" value="{{ request.form['title'] }}" required>
+
+  <div class="category_div">
     <label for="category_id">Category</label>
     <select name="category_id" id="category_id">
-    {% for category in categories %}
-    <option value="{{ category['id'] }}">{{ category['cat_name'] }}</option>
-    {% endfor %}
+      {% for category in categories %}
+      <option value="{{ category['id'] }}">{{ category['cat_name'] }}</option>
+      {% endfor %}
     </select>
-    <label for="body">Body</label>
-    <textarea name="body" id="body">{{ request.form['body'] }}</textarea>
-    <input type="submit" value="Save">
-  </form>
+  </div>
+
+  <label for="body">Body</label>
+  <textarea name="body" id="body">{{ request.form['body'] }}</textarea>
+  <input type="submit" value="Save">
+
+</form>
 {% endblock %}
