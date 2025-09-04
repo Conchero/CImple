@@ -1,6 +1,16 @@
 @import url(./var.css);
 
 
+@font-face {
+  font-family: 'Josefin Sans';
+  src: 
+  url('../assets/fonts/Josefin_Sans/static/JosefinSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+}
+
+html{
+  font-family: 'Josefin Sans';
+}
 
 header:not(.post_header) {
   display: flex;
