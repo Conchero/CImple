@@ -30,10 +30,11 @@
 
   <div class="update_buttons_div">
     <input type="submit" value="Save">
-    <form action="{{ url_for('blog.delete', id=post['id']) }}" class="form_delete" method="post">
-      <input class="danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
-    </form>
-  </div>
-
 </form>
+
+<form action="{{ url_for('blog.delete', id=post['id']) }}" class="form_delete" method="post">
+  <input class="danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
+</form>
+</div>
+
 {% endblock %}

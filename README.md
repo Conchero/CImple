@@ -35,7 +35,7 @@ docker build -t cimple:latest .
 docker volume create cimple-volume
 
 ### Lancer le conteneur
-docker run --name cimple_test -dp 7000:7000 --mount type=volume,src=cimple-volume,target=/app/instance cimple:latest
+docker run --name cimple -dp 7000:7000 --mount type=volume,src=cimple-volume,target=/app/instance cimple:latest
 
 Vous pouvez maintenant accéder à l’application à l’adresse suivante :
 http://localhost:7000
