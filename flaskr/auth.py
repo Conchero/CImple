@@ -29,10 +29,21 @@ def register():
                     (username, generate_password_hash(password)),
                 )
                 db.commit()
+                
+                
             except db.IntegrityError:
                 error = f"User {username} is already registered."
             else:
-                return redirect(url_for("auth.login"))
+                try:
+                    userID = db.execute("SELECT id as session_id FROM user WHERE username = ?",(username,)).fetchone()  
+                except db.IntegrityError:
+                    return redirect(url_for("auth.login"))
+                else:
+                    session.clear()
+                    session['user_id'] = userID['session_id']
+                    return redirect(url_for('index'))
+                    
+                
 
         flash(error)
 
