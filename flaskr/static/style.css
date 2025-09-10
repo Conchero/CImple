@@ -30,7 +30,7 @@ nav {
   align-items: center;
   border-bottom: 0.2rem solid black;
   padding: 0.5rem 2rem;
-  @media (width <= 260px) {
+  @media (width <= 320px) {
     flex-direction: column;
   }
 }
