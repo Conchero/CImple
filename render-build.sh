@@ -1,13 +1,11 @@
 #!/bin/sh
 
+# créer le dossier /instance s’il n’existe pas
+mkdir -p instance
 
 # initialiser la base si elle n’existe pas
-if [ ! -f ./instance/flaskr.sqlite ]; then
-  # créer le dossier /instance s’il n’existe pas
-  mkdir -p instance
+if [ ! -f /instance/flaskr.sqlite ]; then
   flask --app flaskr init-db
-else
-  echo 'already a database'
 fi
 
 # lancer gunicorn
