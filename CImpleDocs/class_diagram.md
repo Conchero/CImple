@@ -39,10 +39,10 @@ class PostCategory{
 }
 
 
-User "1"-->"1" UserPost
+User "1"-->"*" UserPost
 User "1"-->"*" Post
 Post "1"-->"1" UserPost
 
 Category "1"-->"*" Post
 Post "1"-->"1" PostCategory
-Category "1"-->"1" PostCategory
+Category "1"-->"*" PostCategory
