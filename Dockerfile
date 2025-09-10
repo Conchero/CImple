@@ -17,6 +17,6 @@ ENV FLASK_APP=app.py
 
 EXPOSE 7000
 
-RUN ls
+
 
 ENTRYPOINT [ "./boot.sh" ]

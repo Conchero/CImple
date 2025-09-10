@@ -22,7 +22,6 @@ def index():
 
 @bp.route('/<int:id>')
 def index_filtered(id):
-    print(id)
     db = get_db()
     categories = db.execute('SELECT * FROM category').fetchall()
     posts = db.execute(
